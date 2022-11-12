@@ -9,17 +9,11 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('vendors/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/ti-icons/css/themify-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/typicons/typicons.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/simple-line-icons/css/simple-line-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/css/vendor.bundle.base.css') }}">
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href="{{ asset('vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
-    <link rel="stylesheet" href="{{ asset('js/select.dataTables.min.css') }}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -282,7 +276,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/customers') }}">
+                        <a class="nav-link" href="{{ route('customer') }}">
                             <i class="menu-icon mdi mdi-floor-plan"></i>
                             <span class="menu-title">Customers</span>
                         </a>
@@ -301,10 +295,15 @@
 
     <!-- plugins:js -->
     <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
-
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="js/off-canvas.js"></script>
+
+    @yield('script')
 </body>
 
 </html>

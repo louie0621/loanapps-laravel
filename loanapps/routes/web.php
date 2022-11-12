@@ -23,5 +23,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::controller(App\Http\Controllers\CustomerController::class)->group(function () {
 
-    Route::get('/customers', 'index');
+    Route::get('/customers', 'index')->name('customer');
+    Route::post('/customers', 'store')->name('storecustomer');
 });

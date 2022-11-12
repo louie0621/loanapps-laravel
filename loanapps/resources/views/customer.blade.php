@@ -8,147 +8,42 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Customers list</h4>
+
+                        <div class="d-sm-flex align-items-center justify-content-between">
+                            <h4 class="card-title">Customers list</h4>
+                            <div>
+                                <div class="btn-wrapper">
+                                    <a href="#" class="btn btn-otline-dark btn-sm"><i class="icon-printer"></i> Print</a>
+                                    <a href="#" class="btn btn-primary text-white me-0 btn-sm" data-toggle="modal" data-target="#addcustomermodal"><i class="icon-plus"></i> Add</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>
-                                            Profile
-                                        </th>
-                                        <th>
                                             Name
                                         </th>
                                         <th>
-                                            Loan AMT
+                                            Loan Amount
                                         </th>
                                         <th>
-                                            
+                                            Partial Payment
+                                        </th>
+                                        <th>
+                                            Unpaid Balance
                                         </th>
                                         <th>
                                             Deadline
+                                        </th>
+                                        <th>
+                                            Action
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="py-1">
-                                            <img src="../../images/faces/face1.jpg" alt="image" />
-                                        </td>
-                                        <td>
-                                            Herman Beck
-                                        </td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            $ 77.99
-                                        </td>
-                                        <td>
-                                            May 15, 2015
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-1">
-                                            <img src="../../images/faces/face2.jpg" alt="image" />
-                                        </td>
-                                        <td>
-                                            Messsy Adam
-                                        </td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            $245.30
-                                        </td>
-                                        <td>
-                                            July 1, 2015
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-1">
-                                            <img src="../../images/faces/face3.jpg" alt="image" />
-                                        </td>
-                                        <td>
-                                            John Richards
-                                        </td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            $138.00
-                                        </td>
-                                        <td>
-                                            Apr 12, 2015
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-1">
-                                            <img src="../../images/faces/face4.jpg" alt="image" />
-                                        </td>
-                                        <td>
-                                            Peter Meggik
-                                        </td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            $ 77.99
-                                        </td>
-                                        <td>
-                                            May 15, 2015
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-1">
-                                            <img src="../../images/faces/face5.jpg" alt="image" />
-                                        </td>
-                                        <td>
-                                            Edward
-                                        </td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            $ 160.25
-                                        </td>
-                                        <td>
-                                            May 03, 2015
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-1">
-                                            <img src="../../images/faces/face6.jpg" alt="image" />
-                                        </td>
-                                        <td>
-                                            John Doe
-                                        </td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            $ 123.21
-                                        </td>
-                                        <td>
-                                            April 05, 2015
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-1">
-                                            <img src="../../images/faces/face7.jpg" alt="image" />
-                                        </td>
                                         <td>
                                             Henry Tom
                                         </td>
@@ -170,6 +65,7 @@
                     </div>
                 </div>
             </div>
+            @include('modal.customer-modal')
         </div>
     </div>
     <!-- content-wrapper ends -->
@@ -182,4 +78,117 @@
     </footer>
     <!-- partial -->
 </div>
+@endsection
+
+@section('script')
+
+<script>
+    $(document).ready(function() {
+
+        $(document).on("click", "#submitcustomerbtn", function(e) {
+            
+            var error = [];
+
+            if ($("#fname").val().length > 0) {
+                $("#fname").removeClass("is-invalid");
+            } else {
+                $("#fname").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#mi").val().length > 0) {
+                $("#mi").removeClass("is-invalid");
+            } else {
+                $("#mi").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#lname").val().length > 0) {
+                $("#lname").removeClass("is-invalid");
+            } else {
+                $("#lname").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#cofname").val().length > 0) {
+                $("#cofname").removeClass("is-invalid");
+            } else {
+                $("#cofname").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#comi").val().length > 0) {
+                $("#comi").removeClass("is-invalid");
+            } else {
+                $("#comi").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#colname").val().length > 0) {
+                $("#colname").removeClass("is-invalid");
+            } else {
+                $("#colname").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#loanrelease").val().length > 0) {
+                $("#loanrelease").removeClass("is-invalid");
+            } else {
+                $("#loanrelease").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#loanamt").val().length > 0) {
+                $("#loanamt").removeClass("is-invalid");
+            } else {
+                $("#loanamt").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#loanrate").val().length > 0) {
+                $("#loanrate").removeClass("is-invalid");
+            } else {
+                $("#loanrate").addClass("is-invalid");
+                error.push("1")
+            }
+            if ($("#loanperiod").val().length > 0) {
+                $("#loanperiod").removeClass("is-invalid");
+            } else {
+                $("#loanperiod").addClass("is-invalid");
+                error.push("1")
+            }
+            if (error.length <= 0) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{ route('storecustomer') }}",
+                    method: 'POST',
+                    data: {
+                        fname: $('#fname').val(),
+                        mi: $('#mi').val(),
+                        lname: $('#lname').val(),
+                        cofname: $('#cofname').val(),
+                        comi: $('#comi').val(),
+                        colname: $('#colname').val(),
+                        releasedate: $('#loanrelease').val(),
+                        loanamount: $('#loanamt').val(),
+                        loanrate: $('#loanrate').val(),
+                        loanperiod: $('#loanperiod').val(),
+                        loanmethod: $("#loanmethod").children("option:selected").val(),
+                        loantotalamount: $('#loantotalamt').val(),
+                        loanpaymentrate: $('#loanpaymentrate').val(),
+                        _token: '{!! csrf_token() !!}'
+                    },
+                    dataType: "json",
+                    success: function(result) {
+
+                    },
+                    error: function(data, textStatus, errorThrown) {
+                        console.log(data);
+
+                    },
+                });
+            }
+
+
+        })
+
+    })
+</script>
+
 @endsection

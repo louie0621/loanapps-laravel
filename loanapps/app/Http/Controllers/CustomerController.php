@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CustomerRequest;
 use App\Models\customer;
 use Illuminate\Http\Request;
 
@@ -34,9 +35,26 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
         //
+        $data = new customer();
+        $data->firstname = $request->fname;
+        $data->middleinitial = $request->mi;
+        $data->lastname = $request->lname;
+        $data->co_firstname = $request->cofname;
+        $data->co_middleinitial = $request->mi;
+        $data->co_lastname = $request->lname;
+        $data->daterelease = $request->releasedate;
+        $data->loanamount = $request->loanamount;
+        $data->loanpercent = $request->loanrate;
+        $data->loanperiod = $request->loanperiod;
+        $data->loanmethod = $request->loanmethod;
+        $data->totalamount = $request->loantotalamount;
+        $data->paymentrate = $request->loanpaymentrate;
+        $data->save();
+
+        return response()->json();
     }
 
     /**
