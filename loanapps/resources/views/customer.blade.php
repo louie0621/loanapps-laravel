@@ -85,8 +85,58 @@
 <script>
     $(document).ready(function() {
 
+        $(document).on("click", "#sample", function(e) {
+            var loanamt = $("#loanamt").val();
+            var loanrate = $("#loanrate").val();
+            var totalrate = (parseFloat(loanamt) / 100) * parseFloat(loanrate);
+
+            if ($("#loanperiodtype").children("option:selected").val() == 1) {
+                var subtotalrate = parseFloat($("#loanperiod").val() * totalrate)
+                $("#totalinterest").val(subtotalrate)
+                var totalamt = parseFloat(subtotalrate) + parseFloat(loanamt);
+                $("#loantotalamt").val(totalamt)
+
+                if ($("#loanmethod").children("option:selected").val() == 1) {
+                    var payable = parseFloat(totalamt / $("#loanperiod").val())
+                    $("#loanpaymentrate").val(payable)
+                } else if ($("#loanmethod").children("option:selected").val() == 2) {
+                    var a = parseFloat($("#loanperiod").val() * 4)
+                    var payable = parseFloat(totalamt / a)
+                    $("#loanpaymentrate").val(payable)
+                } else if ($("#loanmethod").children("option:selected").val() == 3) {
+                    var a = parseFloat($("#loanperiod").val() * 2)
+                    var payable = parseFloat(totalamt / a)
+                    $("#loanpaymentrate").val(payable)
+                } else {
+                    alert("please select payment method!")
+                }
+            } else if ($("#loanperiodtype").children("option:selected").val() == 2) {
+                var subtotalrate = parseFloat($("#loanperiod").val() * totalrate)
+                $("#totalinterest").val(subtotalrate)
+                var totalamt = parseFloat(subtotalrate) + parseFloat(loanamt);
+                $("#loantotalamt").val(totalamt)
+
+                if ($("#loanmethod").children("option:selected").val() == 1) {
+                    var payable = parseFloat(totalamt / $("#loanperiod").val())
+                    $("#loanpaymentrate").val(payable)
+                } else if ($("#loanmethod").children("option:selected").val() == 2) {
+                    var a = parseFloat($("#loanperiod").val() * 4)
+                    var payable = parseFloat(totalamt / a)
+                    $("#loanpaymentrate").val(payable)
+                } else if ($("#loanmethod").children("option:selected").val() == 3) {
+                    var a = parseFloat($("#loanperiod").val() * 2)
+                    var payable = parseFloat(totalamt / a)
+                    $("#loanpaymentrate").val(payable)
+                } else {
+                    alert("please select payment method!")
+                }
+            }
+
+
+        });
+
         $(document).on("click", "#submitcustomerbtn", function(e) {
-            
+
             var error = [];
 
             if ($("#fname").val().length > 0) {
@@ -184,8 +234,6 @@
                     },
                 });
             }
-
-
         })
 
     })

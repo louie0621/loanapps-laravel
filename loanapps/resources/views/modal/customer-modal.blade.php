@@ -64,28 +64,34 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Loan Amount</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="loanamt">
+                            <input type="text" class="form-control numberonly" id="loanamt">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Interest Rate % per Month</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="loanrate">
+                            <input type="text" class="form-control numberonly" id="loanrate">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Number of the Payment Period</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" id="loanperiod">
+                        <label class="col-sm-3 col-form-label">Payment Period</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control numberonly" id="loanperiod">
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-select form-select-sm" id="loanperiodtype">
+                                <option value="1">Months</option>
+                                <option value="2">Years</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label">Payment Method</label>
                         <div class="col-sm-9">
-                            <select class="form-control" id="loanmethod">
-                                <option value="30">Monthly</option>
-                                <option value="7">Weekly</option>
-                                <option value="15">Twice a Month</option>
+                            <select class="form-select form-select-sm" id="loanmethod">
+                                <option value="1">Monthly</option>
+                                <option value="2">Weekly</option>
+                                <option value="3">Twice a Month</option>
                             </select>
                         </div>
                     </div>
@@ -96,7 +102,13 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Payment Rate per ?</label>
+                        <label class="col-sm-3 col-form-label">Total Interest</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="totalinterest" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Payable Amount per ?</label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control" id="loanpaymentrate" disabled>
                         </div>
@@ -104,6 +116,7 @@
 
                     <button type="button" id="submitcustomerbtn" class="btn btn-primary me-2"><i class="icon-paper-plane"></i> Submit</button>
                     <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary" id="sample">sample</button>
                 </form>
             </div>
         </div>

@@ -284,7 +284,7 @@
                 </ul>
             </nav>
             <!-- partial -->
-            
+
             @yield('content')
 
             <!-- main-panel ends -->
@@ -298,11 +298,19 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery-3.2.1.slim.min.js') }}"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
-    
+
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="js/off-canvas.js"></script>
-
+    <script>
+        //Work unit number only
+        $(".numberonly").keypress(function(e) {
+            //if the letter is not digit then display error and don't type anything
+            if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                return false;
+            }
+        });
+    </script>
     @yield('script')
 </body>
 
